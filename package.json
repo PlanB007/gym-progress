@@ -1,0 +1,22 @@
+{
+  "name": "gym-progress",
+  "version": "1.0.0",
+  "description": "Gym progress💪",
+  "main": "src/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PlanB007/gym-progress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PlanB007/gym-progress/issues"
+  },
+  "homepage": "https://github.com/PlanB007/gym-progress#readme",
+  "dependencies": {
+    "get-sheet-done": "^0.1.4"
+  }
+}
