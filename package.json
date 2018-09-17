@@ -4,7 +4,8 @@
   "description": "Gym progress💪",
   "main": "src/js/index.js",
   "scripts": {
-    "build": "babel src -d lib"
+    "build": "babel src -d lib",
+    "dev": "parcel index.html --open -p 8080"
   },
   "repository": {
     "type": "git",
@@ -17,10 +18,13 @@
   },
   "homepage": "https://github.com/PlanB007/gym-progress#readme",
   "dependencies": {
-    "get-sheet-done": "^0.1.4"
+    "get-sheet-done": "^0.1.4",
+    "parcel-bundler": "^1.9.7",
+    "tabletop": "^1.5.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "node-sass": "^4.9.3"
   }
 }
