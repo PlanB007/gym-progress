@@ -1,35 +1,67 @@
-console.log('script file working');
+console.log('Script file working');
 
+import React from 'react';
+import ReactDOM from 'react-dom';
 import GetSheetDone from 'get-sheet-done';
-import Tabletop from 'tabletop'
+import Tabletop from 'tabletop';
 
-let gymExercises = [];
 const publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1YlxxDzUQzca-4dpiiXyhi2T6eB-2_V8s4U3ZRnnCfaU/edit?usp=sharing';
 
-function init() {
-    Tabletop.init( { key: publicSpreadsheetUrl,
-                     callback: showInfo,
-                     simpleSheet: true } )
-  }
+function getData() {
+  console.log('getdata')
+  return new Promise((resolve) => {
+    Tabletop.init({key: publicSpreadsheetUrl, callback: showInfo, simpleSheet: true})
+    resolve('Done');
+  })
+}
 
-  function showInfo(data, tabletop) {
-    alert('Successfully processed!')
-    gymExercises.push(...data);
+// old fashion way keep this here aslong the function on line 28 doesn't work
+// function showInfo (data, tabletop) {
+//   console.log('Successfully processed!');
+//   let gymExercises = [];
+//   gymExercises.push(...data);
+//   console.log(gymExercises);
+//   console.log(data)
+//   return data
+// }
+let arrayWithData = [];
 
-    let gymExerciseWeek = gymExercises.map(gymExercise => gymExercise.Week);
-    console.log(gymExerciseWeek);
+function showInfo (data, tabletop) {
+  console.log('showInfo active');
+  arrayWithData.push(...data);
+  return new Promise(resolve => {
+    console.log(arrayWithData, 'data is here')
+    resolve(arrayWithData) // This doesn't work yet
+  })
+}
 
-    let gymExerciseNames = gymExercises.map(gymExercise => gymExercise.Oefening);
-    console.log(gymExerciseNames);
+ //showInfo().then(data => {
+  //  console.log(data, 'data from the Promise')
+  //}) // This doensn't work
 
-    let gymExerciseWeight = gymExercises.map(gymExercise => gymExercise.Gewicht);
-    console.log(gymExerciseWeight);
+getData()
+//  This will render the reactblock
+//  .then(function renderReactToDom(hint) {
+//   ReactDOM.render(<Board/>, document.querySelector('#root'))
+// })
 
-    let gymExercisesInfo = gymExercises.map(gymExercises => [gymExercises.Week, gymExercises.Oefening, gymExercises.Gewicht]);
-    //console.log(gymExercisesInfo);
+function promiseChain() {
+  return new Promise(resolve => {
+    resolve(1)
+  })
+}
 
-    let gymExerciseInfo = gymExercisesInfo.map(gymExerciseInfo => console.log(gymExerciseInfo));
+promiseChain()
+  .then(thisIsOne => {
+    console.log(thisIsOne)
 
-  }
+    return thisIsOne + 1
+  })
+  .then(thisIsTwo => {
+    console.log(thisIsTwo)
 
-window.addEventListener('DOMContentLoaded', init)
+    return thisIsTwo + 1
+  })
+  .then(thisIsThree => {
+    console.log(thisIsThree);
+  })
