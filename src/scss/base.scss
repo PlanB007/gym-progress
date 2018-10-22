@@ -4,8 +4,9 @@ body {
   margin: 0;
 }
 
-.progress-board {
+.progress-board,
+#chart {
   height: 30%;
   width: 30%;
-  background: #00FF00;
+  // background: #00FF00;
 }
