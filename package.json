@@ -19,14 +19,14 @@
   "homepage": "https://github.com/PlanB007/gym-progress#readme",
   "dependencies": {
     "get-sheet-done": "^0.1.4",
-    "parcel-bundler": "^1.9.7",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "parcel-bundler": ">=1.10.3",
+    "react": ">=16.6.0",
+    "react-dom": ">=16.6.0",
     "tabletop": "^1.5.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "node-sass": "^4.9.3"
+    "node-sass": "^4.9.4"
   }
 }
