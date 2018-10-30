@@ -59,6 +59,8 @@ function showInfo (data, tabletop) {
 
     const filteredLabels = arrayWithData.map(moetje => moetje.Oefening);
     const filterdWeight = arrayWithData.map(({ Gewicht }) => Gewicht);
+
+    console.log(filterdWeight, filteredLabels);
     const colors = arrayWithData.map(function rgba() {
       const r = Math.floor(Math.random() * 255)
       const g = Math.floor(Math.random() * 255)
@@ -69,27 +71,47 @@ function showInfo (data, tabletop) {
     })
 
     let ctx = document.getElementById("chart").getContext('2d');
+    // let gymChart = new Chart(ctx, {
+    //   type: 'line',
+    //   data: {
+    //     labels: filteredLabels,
+    //     datasets: [{
+    //         label: 'Naam oefening',
+    //         data: filterdWeight,
+    //         // backgroundColor: colors,
+    //         borderColor: colors,
+    //         borderWidth: 1
+    //     }]
+    //   },
+    //   options: {
+    //     scales: {
+    //         yAxes: [{
+    //             ticks: {
+    //                 beginAtZero:true
+    //             }
+    //         }]
+    //     }
+    //   }
+    // });
+
     let gymChart = new Chart(ctx, {
-      type: 'bar',
+      type: "line",
       data: {
-        labels: filteredLabels,
+        labels: ['week 1', 'week 2', 'week 3'],
         datasets: [{
-            label: 'Max gewicht',
-            data: filterdWeight,
+            label: 'oefening 1',
             backgroundColor: colors,
             borderColor: colors,
-            borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-      }
+            data: [20, 30, 60, 40],
+            fill: false,
+          }, {
+            label: 'oefening 2',
+            backgroundColor: colors,
+            borderColor: colors,
+            data: [10, 40, 55, 15],
+            fill: false,
+          }
+        ]}
     });
     console.log('working')
   })
